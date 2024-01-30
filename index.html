@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umleitung</title>
+  </head>
+  <body>
+    <script>
+      setTimeout(() => {
+        try {
+          const targetUrl = new URL(
+            window.location.pathname + window.location.search,
+            "https://www.republik.ch"
+          );
+
+          window.location.replace(targetUrl);
+        } catch (e) {
+          console.error(e);
+        }
+      }, 200);
+    </script>
+  </body>
+</html>

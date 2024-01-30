@@ -1,0 +1,10 @@
+{
+  "framework": "Other",
+  "buildCommand": "",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
