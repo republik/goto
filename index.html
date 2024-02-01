@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weiterleitung zur Republik</title>
     <style>
+      @keyframes bubble {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.3;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+      }
       body {
         display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         align-items: center;
         justify-content: center;
         min-height: 100dvh;
@@ -14,9 +27,52 @@
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
       }
+      .logo {
+        display: flex;
+      }
+      .logo svg {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+      }
+      .dots {
+        height: 2rem;
+        display: flex;
+        gap: 0.5rem;
+        margin-left: 0.5rem;
+        align-items: flex-end;
+      }
+      .bubble {
+        width: 0.35rem;
+        height: 0.35rem;
+        border-radius: 100%;
+        background: #000;
+      }
+      .bubble:nth-child(1) {
+        animation: bubble 1s ease-in-out infinite 0s;
+      }
+      .bubble:nth-child(2) {
+        animation: bubble 1s ease-in-out infinite 0.2s;
+      }
+      .bubble:nth-child(3) {
+        animation: bubble 1s ease-in-out infinite 0.4s;
+      }
     </style>
   </head>
   <body>
+    <div class="logo">
+      <svg viewBox="0 0 127.264 127.264">
+        <path
+          d="M115.667 115.595L95.393 72.228c-15.316.61-28.904-2.242-28.904-2.242V67.81c24.692-4.344 47.487-12.462 47.487-34.28C113.977 5.92 88.8.136 59.822.007L59.816 0H0v4.7l11.6 6.24 2.26 4.6v95.456l-2.26 4.6L0 121.832v4.702h62.816v-4.702l-11.598-6.238-2.44-4.6V80.77l10.07-8.575 22.035 54.34h46.38v-4.702l-11.596-6.238zM62.3 7.325c8.183 1.527 14.355 8.964 14.355 27.578 0 21.176-8.317 27.912-21.95 27.912h-5.928V17.07L62.3 7.325z"
+        ></path>
+      </svg>
+      <div class="dots">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+      </div>
+    </div>
+
     <div id="content" hidden>
       Wenn Sie nicht automatisch weitergeleitet werden, klicken Sie auf diesen
       Link: <a id="targetlink"></a>
