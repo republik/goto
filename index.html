@@ -17,7 +17,7 @@
     </style>
   </head>
   <body>
-    <div>
+    <div id="content" hidden>
       Wenn Sie nicht automatisch weitergeleitet werden, klicken Sie auf diesen
       Link: <a id="targetlink"></a>
     </div>
@@ -34,6 +34,8 @@
             const link = document.getElementById("targetlink");
             link.setAttribute("href", targetUrl.toString());
             link.innerText = targetUrl.toString();
+
+            document.getElementById("content").removeAttribute("hidden");
 
             window.location.replace(targetUrl);
           } else {
