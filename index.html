@@ -9,12 +9,16 @@
     <script>
       setTimeout(() => {
         try {
-          const targetUrl = new URL(
-            window.location.pathname + window.location.search,
-            "https://www.republik.ch"
-          );
+          if (window.location.hostname.match(/^goto\.republik\.(love|ch)$/)) {
+            const targetUrl = new URL(
+              window.location.pathname + window.location.search,
+              window.location.origin.replace(/goto/, "www")
+            );
 
-          window.location.replace(targetUrl);
+            window.location.replace(targetUrl);
+          } else {
+            console.error("Cannot redirect on this domain");
+          }
         } catch (e) {
           console.error(e);
         }
